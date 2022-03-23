@@ -1,5 +1,7 @@
 library(car)
 library(dplyr)
+library(GPArotation)
+library(psych)
 
 mortgage <- read.csv("C:/Users/Cindy C/Documents/CINDY CHEN/2021 Prep/SCHOOL WORK/QMSS GR5015 - Data Analysis/Final Project/mortgage_data.csv")
 mortgage <- as.data.frame(mortgage)
@@ -13,8 +15,7 @@ boxTidwell(logodds ~ income_log + property_value_log + combined_loan_to_value_ra
 
 #install.packages("GPArotation")
 
-library(GPArotation)
-library(psych)
+
 
 fa <- fa(mortgage, nfactors = 3, fm = "pa", rotate = "none", max.iter = 100)
 fa.rotate <- fa(mortgage, nfactors = 3, fm = "pa", rotate = "varimax", max.iter = 100)
